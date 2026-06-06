@@ -6,6 +6,7 @@ I design and build agentic, workflow‑driven, operational AI systems that repla
 
 I currently maintain a **private, in‑development AI framework** focused on scalable automation and structured decision systems.  
 Details are intentionally limited while the architecture evolves.
+
 ⚡ Signature Philosophy — Replace & Rebuild
 
 Organizations don’t need more dashboards or “AI features.”
@@ -66,7 +67,13 @@ Enterprise Workflows	Supply chain, retail operations, business automation
 - **[Systems Thinking](ca://s?q=What_is_systems_thinking_in_tech)**  
 - **[AI‑Driven Automation](ca://s?q=Explain_AI_driven_automation)**  
 
----
+🔭 Current Focus
+
+• Advancing my Microsoft Applied Skills path in AI workflow design
+• Designing high‑trust, high‑observability AI systems
+• Publishing more AI workflow patterns and systems architecture content
+• Building modular tools that support enterprise‑grade automation
+
 
 ## Selected Public Projects  
 
