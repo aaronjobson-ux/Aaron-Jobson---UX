@@ -1,11 +1,8 @@
- # Aaron Jobson  
-### AI Workflow Architect | Stealth‑Mode Systems Builder | Operational AI Infrastructure  
+🧠 Aaron Jobson
 
----
+AI Workflow Architect | Enterprise Systems Designer | Replace & Rebuild Practitioner
 
-## Professional Summary  
-I design and build AI‑enabled systems with a focus on **workflow automation, operational intelligence, and enterprise‑grade infrastructure**.  
-My work blends backend engineering, systems thinking, and applied AI tooling to create architectures that are reliable, observable, and built for real‑world use.
+I design and build agentic, workflow‑driven, operational AI systems that replace brittle legacy processes with clean, observable, scalable architectures. My work blends AI orchestration, backend engineering, and enterprise automation — always with a focus on systems that run reliably in production.
 
 I currently maintain a **private, in‑development AI framework** focused on scalable automation and structured decision systems.  
 Details are intentionally limited while the architecture evolves.
