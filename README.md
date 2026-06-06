@@ -31,7 +31,15 @@ Everything I build follows this philosophy.
 • Backend Integrations — modular, fault‑tolerant service layers
 • Telemetry & Metrics Infrastructure — high‑resolution observability
 • AI‑Augmented Business Workflows — supply chain, retail, operations
----
+🧩 Skills Matrix
+
+Area	Strengths	
+Languages	Go, Python, JavaScript/TypeScript	
+AI & Automation	Agentic workflows, orchestration, LLM integration	
+Backend Engineering	API design, modular services, system decomposition	
+Observability	Metrics pipelines, structured logging, telemetry design	
+Cloud & Infra	Azure, containerization, CI/CD, distributed systems	
+Enterprise Workflows	Supply chain, retail operations, business automation	
 
 ## What I Focus On  
 - **AI‑Driven Workflow Orchestration**   Designing agent‑style and Copilot‑integrated workflows that operate reliably at scale.
