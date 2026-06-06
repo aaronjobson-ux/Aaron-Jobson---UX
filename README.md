@@ -2,7 +2,7 @@
 
 AI Workflow Architect | Enterprise Systems Designer | Replace & Rebuild Practitioner
 
-I design and build agentic, workflow‑driven, operational AI systems that replace brittle legacy processes with clean, observable, scalable architectures. My work blends AI orchestration, backend engineering, and enterprise automation — always with a focus on systems that run reliably in production.
+I design AI‑driven workflows and operational systems that turn messy, manual processes into clean, deterministic, observable pipelines. My work sits at the intersection of systems architecture, automation, and applied AI—where reliability, clarity, and measurable outcomes matter more than hype. I build frameworks, workflows, and backend integrations that help organizations replace brittle legacy processes with modern, modular, and scalable AI‑powered operations.
 
 I currently maintain a **private, in‑development AI framework** focused on scalable automation and structured decision systems.  
 Details are intentionally limited while the architecture evolves.
