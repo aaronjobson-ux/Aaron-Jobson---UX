@@ -1,105 +1,164 @@
-🧠 Aaron Jobson
+ AI Ops Design Doc — Human‑in‑the‑Loop Escalation Workflow
 
-AI Workflow Architect | Enterprise Systems Designer | Replace & Rebuild Practitioner
+Overview
 
-I design AI‑driven workflows and operational systems that turn messy, manual processes into clean, deterministic, observable pipelines. My work sits at the intersection of systems architecture, automation, and applied AI—where reliability, clarity, and measurable outcomes matter more than hype. I build frameworks, workflows, and backend integrations that help organizations replace brittle legacy processes with modern, modular, and scalable AI‑powered operations.
-
-I currently maintain a **private, in‑development AI framework** focused on scalable automation and structured decision systems.  
-Details are intentionally limited while the architecture evolves.
-
-⚡ Signature Philosophy — Replace & Rebuild
-
-Organizations don’t need more dashboards or “AI features.”
-They need systems that think, workflows that adapt, and infrastructure that doesn’t collapse under real operational load.
-
-My guiding principles:
-
-• Replace what’s fragile
-• Rebuild what matters
-• Architect for scale, not demos
-• Prioritize observability and truth
-• Reduce cognitive load, not increase it
-
-
-Everything I build follows this philosophy.
+This document defines a safe, predictable, human‑in‑the‑loop escalation workflow for a model‑driven customer support system.
+The goal is to demonstrate AI Ops design clarity: structured inputs, bounded model behavior, error handling, and failure‑mode awareness.
 
 ---
 
-🏗️ What I Build
+1. Problem Statement
 
-• Agentic AI Workflows — multi‑step, stateful, deterministic pipelines
-• Operational AI Systems — real‑time decisioning and automation
-• Backend Integrations — modular, fault‑tolerant service layers
-• Telemetry & Metrics Infrastructure — high‑resolution observability
-• AI‑Augmented Business Workflows — supply chain, retail, operations
-🧩 Skills Matrix
+Non‑technical support agents need a reliable way to:
 
-Area	Strengths	
-Languages	Go, Python, JavaScript/TypeScript	
-AI & Automation	Agentic workflows, orchestration, LLM integration	
-Backend Engineering	API design, modular services, system decomposition	
-Observability	Metrics pipelines, structured logging, telemetry design	
-Cloud & Infra	Azure, containerization, CI/CD, distributed systems	
-Enterprise Workflows	Supply chain, retail operations, business automation	
+• classify customer issues
+• understand recommended actions
+• escalate when needed
+• avoid hallucinations or incorrect routing
 
-## What I Focus On  
-- **AI‑Driven Workflow Orchestration**   Designing agent‑style and Copilot‑integrated workflows that operate reliably at scale.
 
-- **Backend Engineering for AI Systems**  
-  Building services, CLIs, and automation tools in Go and Python.
-
-- **Operational Data & Observability**  
-  Creating metrics pipelines, KPI frameworks, and telemetry layers that support AI system health.
-
-- **Enterprise Integration Patterns**  
-  Connecting AI capabilities with existing systems, cloud infrastructure, and operational tooling.
-
-- **Stealth‑Mode Architecture Development**  
-  Developing a modular AI automation framework currently kept private.
+The system must be simple, guard‑railed, and impossible to break.
 
 ---
 
-## Core Competencies  
-- **[AI Workflow Architecture](ca://s?q=Tell_me_more_about_AI_workflow_architecture)**  
-- **[Backend Engineering](ca://s?q=Explain_backend_engineering_foundations)** (Go, Python, SQL)  
-- **[Operational Analytics](ca://s?q=Explain_operational_analytics)**  
-- **[Observability & Metrics](ca://s?q=Explain_observability_for_AI_systems)**  
-- **[Systems Thinking](ca://s?q=What_is_systems_thinking_in_tech)**  
-- **[AI‑Driven Automation](ca://s?q=Explain_AI_driven_automation)**  
+2. User Input Format
 
-🔭 Current Focus
+Agents provide structured input:
 
-• Advancing my Microsoft Applied Skills path in AI workflow design
-• Designing high‑trust, high‑observability AI systems
-• Publishing more AI workflow patterns and systems architecture content
-• Building modular tools that support enterprise‑grade automation
+[Category: Billing | Technical | Account Access | Cancellation | General Inquiry | Unknown]
+[Urgency: Low | Medium | High]
+[Customer Message:]
+<paste text here>
 
 
-## Selected Public Projects  
-
-### **go-metrics-cli**  
-A Go‑based CLI for collecting and structuring operational metrics.  
-**Relevance:** Supports telemetry, observability, and operational readiness.
-
-### **Supply Chain KPI Dashboard**  
-A structured analytics workflow for monitoring operational performance.  
-**Relevance:** Demonstrates KPI modeling, data clarity, and decision‑support system design.
-
-### **Private AI Framework (active development)**  
-A modular automation and data‑flow architecture currently in stealth mode.  
-**Relevance:** Focused on scalable, AI‑assisted workflows aligned with enterprise integration patterns.
+This prevents the model from guessing context or inventing categories.
 
 ---
 
-## Technical Proficiencies  
-**Languages:** Go, Python, SQL  
-**AI & Automation:** Copilot Studio, Azure AI, agentic orchestration patterns  
-**Cloud & Infrastructure:** Azure, Docker  
-**Practices:** Modular design, workflow orchestration, observability, documentation discipline  
+3. System Behavior (Hidden Prompt / Ops Layer)
+
+The model must always return:
+
+1. Issue Classification (one of 6 fixed categories)
+2. Confidence Score (High / Medium / Low)
+3. Recommended Action (1–2 steps)
+4. Escalation Needed (Yes/No)
+5. Reasoning (max 1 sentence)
+
+
+Hard constraints:
+
+• No invented policies
+• No invented solutions
+• No assumptions beyond the text
+• Auto‑escalate if confidence = Low
+
+
+This enforces bounded, predictable behavior.
 
 ---
 
-## Professional Links  
-**LinkedIn:** linkedin.com/in/aaron-jobson  
-**Location:** Amherst, NY  
+4. Output Format (User‑Facing)
 
+Issue Classification: <one of 6 categories>
+Confidence: High | Medium | Low
+Recommended Action:
+- Step 1
+- Step 2
+Escalation: Yes | No
+Reasoning: <1 sentence>
+
+
+This ensures consistency across all agents and use cases.
+
+---
+
+5. Error Handling
+
+Missing tags:
+→ “Please include Category and Urgency so I can route this correctly.”
+
+Message too short:
+→ “I need more detail to classify this issue. Please paste the full customer message.”
+
+Unsupported content:
+→ “I can only classify written text. Please paste the customer message.”
+
+Sensitive data detected:
+→ “This message contains sensitive information. Follow the secure‑handling workflow.”
+
+Error handling is designed to guide, not punish.
+
+---
+
+6. Failure Modes & Safeguards
+
+Failure Mode 1: Hallucination
+
+Safeguard:
+
+• Fixed category list
+• Confidence scoring
+• Auto‑escalation on Low confidence
+
+
+Failure Mode 2: Incorrect Routing
+
+Safeguard:
+
+• Required Category tag
+• 1‑sentence reasoning
+• No invented policies
+
+
+Failure Mode 3: Over‑reliance on AI
+
+Safeguard:
+
+• Human‑in‑the‑loop escalation
+• Clear boundaries on model capabilities
+
+
+Failure Mode 4: User Confusion
+
+Safeguard:
+
+• Strict input format
+• Strict output format
+• Clear error messages
+
+
+This is the core of AI Ops: designing for failure, not perfection.
+
+---
+
+7. Why This Design Works (AI Ops Lens)
+
+• Predictable outputs
+• Bounded model behavior
+• Human‑in‑the‑loop safety
+• Clear escalation logic
+• Non‑technical user friendly
+• Workflow clarity over model complexity
+
+
+This demonstrates the exact skill hiring managers look for:
+“Can you design a system someone else won’t need to troubleshoot?”
+
+---
+
+8. Versioning & Future Extensions
+
+Potential next iterations:
+
+• Add monitoring hooks for confidence drift
+• Add evaluation metrics (precision/recall per category)
+• Add dashboard for escalation patterns
+• Add automated alerts for repeated failure modes
+
+
+---
+
+9. License
+
+MIT License (optional)
